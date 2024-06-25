@@ -8,7 +8,7 @@ variables:
   azureServiceConnectionId: 'BillTestServiceConnection-BillUiTest'
   webAppName: 'Bill-UI-Test'  # Replace with your actual Angular app name
   nodeVersion: '20.x'
-  angularCliVersion: '18.0.3'  # Use the latest Angular version
+  angularCliVersion: '18.0.3'  # Use the latest Angular version 18.0.3
 
 stages:
 - stage: Build
