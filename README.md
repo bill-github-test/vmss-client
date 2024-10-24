@@ -23,8 +23,7 @@ As a Proof of Concept (POC), this application demonstrates the deployment proces
 
 Upon user interaction, the application dispatches an action to trigger an effect, which in turn calls a REST API to execute the corresponding operation. The API response, containing the updated VM status, is then fed to the reducer, which updates the application state. Finally, components subscribed to the store reflect these changes in the user interface.
 
-
 # Accessing the Angular Application
 The Angular application can be accessed via the following URL:
 
-http://BillTestVmssClient_<unique_id>.azurewebsites.net
+http://BillTestVmssClient.azurewebsites.net

@@ -5,8 +5,8 @@ import { catchError, map, of, switchMap } from "rxjs";
 
 import * as VmssActions from "./vmss.actions";
 
-const hostlink = 'http://127.0.0.1:5000/';
-//const hostlink = 'https://billtestappservice.azurewebsites.net/';
+// const hostlink = 'http://127.0.0.1:5000/';
+const hostlink = 'https://billtestappservice.azurewebsites.net/';
 
 @Injectable()
 export class VmssEffects {
