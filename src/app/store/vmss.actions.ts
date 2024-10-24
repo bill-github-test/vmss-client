@@ -11,7 +11,7 @@ export const getVmssVmStatusSuccess = createAction(
 
 export const getVmssVmStatusFailure = createAction(
     '[VMSS] Get VMSS VM Status Failure', 
-    props<{message: string}>()
+    props<{error: any}>()
 );
 
 export const turnOnAllVms = createAction(
@@ -25,7 +25,7 @@ export const turnOnAllVmsSuccess = createAction(
 
 export const turnOnAllVmsFailure = createAction(
     '[VMSS] Turn on all VMs Failure', 
-    props<{message: string}>()
+    props<{error: any}>()
 );
 
 export const turnOffAllVms = createAction(
@@ -39,5 +39,5 @@ export const turnOffAllVmsSuccess = createAction(
 
 export const turnOffAllVmsFailure = createAction(
     '[VMSS] Turn off all VMs Failure', 
-    props<{message: string}>()
+    props<{error: any}>()
 );

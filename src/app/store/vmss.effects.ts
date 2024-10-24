@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { catchError, map, of, switchMap } from "rxjs";
 
-import { getVmssVmStatus, getVmssVmStatusFailure, getVmssVmStatusSuccess, turnOffAllVms, turnOffAllVmsFailure, turnOffAllVmsSuccess, turnOnAllVms, turnOnAllVmsFailure, turnOnAllVmsSuccess } from "./vmss.actions";
+import * as VmssActions from "./vmss.actions";
 
 const hostlink = 'http://127.0.0.1:5000/';
 //const hostlink = 'https://billtestappservice.azurewebsites.net/';
@@ -11,39 +11,39 @@ const hostlink = 'http://127.0.0.1:5000/';
 @Injectable()
 export class VmssEffects {
     getVmssVmStatus$ = createEffect(() => this._actions$.pipe(
-        ofType(getVmssVmStatus),
+        ofType(VmssActions.getVmssVmStatus),
         switchMap(() => {
             return this._http.get<Record<string, string>>(hostlink + 'status').pipe(
                 map(f => {
-                    return getVmssVmStatusSuccess({ status: f });
+                    return VmssActions.getVmssVmStatusSuccess({ status: f });
                 }),
-                catchError(e => of(getVmssVmStatusFailure(e)))
+                catchError(e => of(VmssActions.getVmssVmStatusFailure(e)))
             );
         }),
 
     ));
 
     turnOnAllVms$ = createEffect(() => this._actions$.pipe(
-        ofType(turnOnAllVms),
+        ofType(VmssActions.turnOnAllVms),
         switchMap(() => {
             return this._http.get<Record<string, string>>(hostlink + 'turnon').pipe(
                 map(f => {
-                    return turnOnAllVmsSuccess({ status: f });
+                    return VmssActions.turnOnAllVmsSuccess({ status: f });
                 }),
-                catchError(e => of(turnOnAllVmsFailure(e)))
+                catchError(e => of(VmssActions.turnOnAllVmsFailure(e)))
             );
         }),
 
     ));
 
     turnOffAllVms$ = createEffect(() => this._actions$.pipe(
-        ofType(turnOffAllVms),
+        ofType(VmssActions.turnOffAllVms),
         switchMap(() => {
             return this._http.get<Record<string, string>>(hostlink + 'turnoff').pipe(
                 map(f => {
-                    return turnOffAllVmsSuccess({ status: f });
+                    return VmssActions.turnOffAllVmsSuccess({ status: f });
                 }),
-                catchError(e => of(turnOffAllVmsFailure(e)))
+                catchError(e => of(VmssActions.turnOffAllVmsFailure(e)))
             );
         }),
 

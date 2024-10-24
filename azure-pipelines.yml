@@ -6,7 +6,7 @@ pool:
 
 variables:
   azureServiceConnectionId: 'BillTestServiceConnection'
-  webAppName: 'BillTestVmssClient'  
+  webAppName: 'AngularClientAppService'  
   nodeVersion: '20.x'
   angularCliVersion: '18.x.x' 
 
